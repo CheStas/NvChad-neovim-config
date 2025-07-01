@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -44,7 +44,9 @@ return {
       require("telescope").load_extension("live_grep_args")
     end
   },
-  { "github/copilot.vim" },
+  { "github/copilot.vim",
+    event = "VeryLazy",
+  },
   {
     'rmagatti/auto-session',
     lazy = false,
@@ -53,16 +55,16 @@ return {
     opts = {
     }
   },
-  -- {
-  --   "williamboman/mason.nvim",
-  --   opts = {
-  --     ensure_installed = {
-  --       "eslint-lsp",
-  --       "prettier",
-  --       "typescript-language-server",
-  --     }
-  --   }
-  -- },
+  {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        -- "eslint-lsp",
+        "prettier",
+        "typescript-language-server",
+      }
+    }
+  },
 
   -- test new blink
   -- { import = "nvchad.blink.lazyspec" },
